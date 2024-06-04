@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="/asset/icon.png">
+    <title>Golden Mall</title>
+    <link rel="stylesheet" href="/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="/js/GoogleAnalyticsBuilder.js"></script>
+    <script>
+
+    </script>
+    <script src="/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPC9HDZQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="header"></div>
+
+    <div class="container">
+        <div style="text-align: center; font-weight: bold; font-size: 24px;
+        padding-top: 2vh; padding-bottom: 1vh; margin-bottom: 1vh;
+        border-bottom: 1px solid #EEEEEE;">
+            박한훈 님이 좋아하실만한<br>
+            의류 상품 추천드려요.
+        </div>
+        <div class="product">
+            <div class="product-list">
+                <div class="product-list-title">
+                    신발
+                </div>
+                <div class="product-list-title2">
+                    전체 보기 >
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-info" onclick="moveProductItemDetail()">
+                    <img class="product-info-img" src="/asset/product/img_shoes1.jpg" alt=""/>
+                    <div class="product-info-title">Vans</div>
+                    <div class="product-info-content">올드스쿨 블랙</div>
+                    <div class="product-info-price">
+                        <div class="product-info-price1">48,860</div>
+                        <div class="product-info-price2">원</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <img class="product-info-img" src="/asset/product/img_shoes2.jpg" alt=""/>
+                    <div class="product-info-title">Crocs</div>
+                    <div class="product-info-content">바야밴드 클로그</div>
+                    <div class="product-info-price">
+                        <div class="product-info-price1">35,900</div>
+                        <div class="product-info-price2">원</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-list">
+                <div class="product-list-title">
+                    의류
+                </div>
+                <div class="product-list-title2">
+                    전체 보기 >
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-info">
+                    <img class="product-info-img" src="/asset/product/img_clothes1.jpg" alt=""/>
+                    <div class="product-info-title">Nike</div>
+                    <div class="product-info-content">나이키 스우시 반팔</div>
+                    <div class="product-info-price">
+                        <div class="product-info-price1">22,900</div>
+                        <div class="product-info-price2">원</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <img class="product-info-img" src="/asset/product/img_clothes2.jpg" alt=""/>
+                    <div class="product-info-title">꼼데가르송</div>
+                    <div class="product-info-content">PLAY 반팔티셔츠</div>
+                    <div class="product-info-price">
+                        <div class="product-info-price1">123,000</div>
+                        <div class="product-info-price2">원</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; font-weight: bold; font-size: 24px;
+        padding-top: 1vh; padding-bottom: 1vh; margin-bottom: 1vh;
+        border-bottom: 1px solid #EEEEEE;">
+            이런 상품은 어떠세요?
+        </div>
+        <div class="product">
+            <div class="product-list">
+                <div class="product-list-title">
+                    음료
+                </div>
+                <div class="product-list-title2">
+                    전체 보기 >
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-info">
+                    <img class="product-info-img" src="/asset/product/img_drink1.jpg" alt=""/>
+                    <div class="product-info-title">삼육두유</div>
+                    <div class="product-info-content">검은참깨 두유 32개</div>
+                    <div class="product-info-price">
+                        <div class="product-info-price1">19,500</div>
+                        <div class="product-info-price2">원</div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <img class="product-info-img" src="/asset/product/img_drink2.jpg" alt=""/>
+                    <div class="product-info-title">매일유업</div>
+                    <div class="product-info-content">아몬드 브리즈 24개</div>
+                    <div class="product-info-price">
+                        <div class="product-info-price1">21,900</div>
+                        <div class="product-info-price2">원</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="nav"></div>
+</body>
+<script>
+    $(function(){
+        $("#header").load("/component/header.html", function(){
+        });
+        $("#nav").load("/component/nav.html", function(){
+        });
+    });
+</script>
+</html>

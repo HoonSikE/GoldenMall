@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="/asset/icon.png">
+    <title>Golden Mall</title>
+    <link rel="stylesheet" href="/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="/js/GoogleAnalyticsBuilder.js"></script>
+    <script>
+
+    </script>
+    <script src="/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPC9HDZQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="header"></div>
+
+    <div class="container-button">
+        <div class="product">
+            <div class="product-list">
+                <div class="product-list-title">
+                    상품 구매
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-info" onclick="moveProductItemDetail()">
+                    <img class="product-info-img" src="/asset/product/img_shoes1.jpg" alt=""/>
+                </div>
+                <div class="product-info">
+                    <img class="product-info-img" src="/asset/product/img_clothes2.jpg" alt=""/>
+                    
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-list-title">총 상품 가격</div>
+            </div>
+            <div class="product">
+                <div class="product-list">
+                    <div class="product-info-content">총 상품 가격</div>
+                    <div class="product-info-content">172,860 원</div>
+                </div>
+                <div class="product-list">
+                    <div class="product-info-content">총 배송비</div>
+                    <div class="product-info-content">3,000 원</div>
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-list-title">
+                    총 결제 금액
+                </div>
+                <div class="product-info-price">
+                    <div class="product-info-price1">175,860</div>
+                    <div class="product-info-price2">원</div>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-list">
+                <div class="product-list-title">배송지</div>
+            </div>
+            <div class="product-info-content">
+                서울특별시 광진구 OOO로 OO길 OO<br>
+                , 000호 (OO동)
+            </div>
+            <div class="product-list">
+                <div class="product-info-content">휴대폰: 010-1234-5678</div>
+                <button class="select-button">선택</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-list">
+                <div class="product-list-title">결제 수단</div>
+            </div>
+            <div class="product-list">
+                <div class="product-info-content">카카오뱅크 / 3333-**-*******</div>
+                <button class="select-button">선택</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-button-backgroundcolor">
+        <button class="main-button" onclick="moveProductPurchase()">결 제</button>
+    </div>
+
+    <div id="nav"></div>
+</body>
+<script>
+    $(function(){
+        $("#header").load("/component/header.html", function(){
+        });
+        $("#nav").load("/component/nav.html", function(){
+        });
+    });
+</script>
+</html>

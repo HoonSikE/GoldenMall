@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="/asset/icon.png">
+    <title>Golden Mall</title>
+    <link rel="stylesheet" href="/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="/js/GoogleAnalyticsBuilder.js"></script>
+    <script>
+        let pageObj = {
+            // 방문 페이지 제목
+            // title: '페이지 제목dd',
+
+            // // 이벤트 매개변수
+            // ep_visit_login_yn: 'Y',
+            // ep_visit_channel_option: 'PCWeb',
+
+            // // 사용자 속성
+            // up_gender: 'M',
+            // up_age: '29'
+        }
+        sendGAPage(pageObj);
+        console.log(window.dataLayer);
+    </script>
+    <script src="/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPC9HDZQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="header"></div>
+    
+    <div class="container">
+        <span class="user-info">
+            <div>
+                <img class="user-info-img" src="/asset/mypage/img_user.jpg" alt="">
+            </div>
+            <div class="user-info-text">
+                <div>박한훈</div>
+                <div>+82 10-1234-5678</div>
+                <div>hhpark@goldenplanet.co.kr</div>
+            </div>
+        </span>
+        <span class="mypage-list">
+            <img class="mypage-icon" src="/asset/icon/ic_user.png" alt=""></img>
+            <div class="mypage-list-text">계정</div>
+        </span>
+        <span class="mypage-list" onclick="moveProductHistory()">
+            <img class="mypage-icon" src="/asset/icon/ic_delivery.png" alt=""></img>
+            <div class="mypage-list-text">주문 및 배송 목록</div>
+        </span>
+        <span class="mypage-list" onclick="moveCart()">
+            <img class="mypage-icon" src="/asset/icon/ic_cart.png" alt=""></img>
+            <div class="mypage-list-text">장바구니 목록</div>
+        </span>
+        <span class="mypage-list">
+            <img class="mypage-icon" src="/asset/icon/ic_membership.png" alt=""></img>
+            <div class="mypage-list-text">멤버십</div>
+        </span>
+        <span class="mypage-list">
+            <img class="mypage-icon" src="/asset/icon/ic_call.png" alt=""></img>
+            <div class="mypage-list-text">고객센터</div>
+        </span>
+        <span class="mypage-list">
+            <img class="mypage-icon" src="/asset/icon/ic_cancel.png" alt=""></img>
+            <div class="mypage-list-text">회원탈퇴</div>
+        </span>
+    </div>
+
+    <div id="nav"></div>
+</body>
+
+<script>
+    $(function(){
+        $("#header").load("/component/header.html", function(){
+        });
+        $("#nav").load("/component/nav.html", function(){
+            var moveMyPage = document.getElementById("move-mypage");
+            moveMyPage.src = "/asset/icon/ic_user2.png";
+        });
+    });
+</script>
+</html>

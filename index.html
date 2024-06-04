@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="/asset/icon.png">
+    <title>Golden Mall</title>
+    <link rel="stylesheet" href="/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="/js/GoogleAnalyticsBuilder.js"></script>
+    <script>
+        let pageObj = {
+            // 방문 페이지 제목
+            title: '메인>골든몰 홈',
+
+            // // 이벤트 매개변수
+            // ep_visit_login_yn: 'Y',
+            // ep_visit_channel_option: 'PCWeb',
+
+            // // 사용자 속성
+            // up_gender: 'M',
+            up_age: '30',
+            test: 'test'
+        }
+        sendGAPage(pageObj);
+        console.log(window.dataLayer);
+    </script>
+    <script src="/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPC9HDZQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="header"></div>
+
+    <div class="container">
+        <div style="margin-top: 5vh;">
+            <div class="center" onclick="modal()">
+                <img class="show-modal-img" src="/asset/main/img_gp_modal.png" alt="">
+            </div>
+            <div class="center" onclick="modal()">
+                <div>[크게 보기]</div>
+            </div>
+        </div>
+        <div style="margin-top: 5vh;">
+            <div class="center" onclick="moveProductItemList()">
+                <img class="move-productpage-img" src="/asset/main/img_recommendation.png" alt="">
+            </div>
+            <div class="center" onclick="moveProductItemList()">
+                <span>[추천상품 보기 !!]</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="nav"></div>
+
+    <!-- 모달 -->
+    <div id="modal" class="modal">
+        <img class="modal_popup" src="/asset/main/img_gp_modal.png" alt="">
+    </div>
+</body>
+
+<script>
+    $(function(){
+        $("#header").load("/component/header.html", function(){
+        });
+        $("#nav").load("/component/nav.html", function(){
+            var moveMyPage = document.getElementById("move-home");
+            moveMyPage.src = "/asset/icon/ic_home2.png";
+        });
+    });
+
+    function modal(){
+        var modal = document.getElementById('modal');
+
+        if (modal.style.display === "none") {
+            modal.style.display = "block";
+        } else {
+            modal.style.display = "none";
+        }
+    }
+
+    // 모달 닫기 버튼 클릭 시
+    document.querySelector('#modal').addEventListener('click', function() {
+        var modal = document.getElementById('modal');
+        modal.style.display = "none";
+    });
+</script>
+</html>

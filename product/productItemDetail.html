@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="images/png" href="/asset/icon.png">
+    <title>Golden Mall</title>
+    <link rel="stylesheet" href="/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <script src="/js/GoogleAnalyticsBuilder.js"></script>
+    <script>
+
+    </script>
+    <script src="/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPC9HDZQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="header"></div>
+
+    <div class="container-button">
+        <div class="product">
+            <div class="product-list">
+                <div class="product-info-content">홈 > 의류 > 신발</div>
+            </div>
+            <div class="product-list">
+                <div class="product-info-big" onclick="moveProductItemDetail()">
+                    <img class="product-info-img" src="/asset/product/img_shoes1.jpg" alt=""/>
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-list-title">Vans</div>
+                <div style="display:flex">
+                    <div style="font-size: 16px;">4.6</div>
+                    <img src="/asset/product/img_glade.png" style="width: auto; height: 16px; padding-left: 3px; padding-right: 3px;" alt="">
+                    <div style="font-size: 16px; color: blue;">395개 상품평</div>
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-list-title">반스 운동화 올드스쿨 블랙</div>
+            </div>
+            <div class="product-list">
+                <div class="product-info-price" style="width: 94vw;">
+                    <div class="product-info-price0"> 50,000 </div>
+                    <div class="product-info-price1">48,860</div>
+                    <div class="product-info-price2">원</div>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-list">
+                <div class="product-info-content">색상코드</div>
+                <div class="product-info-content">BLACK</div>
+            </div>
+            <div class="product-list">
+                <div class="product-info-content">사이즈</div>
+                <div class="product-info-content">270</div>
+            </div>
+            <div class="product-list">
+                <div class="product-info-content">배송비</div>
+                <div class="product-info-content">3,000 원</div>
+            </div>
+            <div class="product-list">
+                <div class="product-info-content">판매자</div>
+                <div class="product-info-content">골든플래닛 역삼</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-button-backgroundcolor">
+        <div style="width: 10%; display: flex; justify-content: center; align-items: center;">
+            <img src="/asset/icon/ic_heart.png" style="height: 90%; width: auto;" alt="">
+        </div>
+        <div style="width: 40%;">
+            <button class="sub-button" onclick="moveCart()">장 바 구 니</button>    
+        </div>
+        <div style="width: 50%;">
+            <button class="main-button" onclick="moveProductCheckout()">구 매</button>    
+        </div>
+    </div>
+
+    <div id="nav"></div>
+</body>
+<script>
+    $(function(){
+        $("#header").load("/component/header.html", function(){
+        });
+        $("#nav").load("/component/nav.html", function(){
+        });
+    });
+</script>
+</html>
