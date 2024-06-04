@@ -13,14 +13,18 @@
             // 방문 페이지 제목
             title: '메인>골든몰 홈',
 
-            // // 이벤트 매개변수
-            // ep_visit_login_yn: 'Y',
-            // ep_visit_channel_option: 'PCWeb',
+            // 이벤트 매개변수
+            ep_page_name: '메인>골든몰 홈',            
+            ep_visit_channel: 'PCWeb',
+            ep_login_yn: 'Y',
+            ep_dow: '화',
 
-            // // 사용자 속성
-            // up_gender: 'M',
-            up_age: '30',
-            test: 'test'
+            // 사용자 속성
+            up_uid: 'hhpark@goldenplanet.co.kr',
+            up_type: '개인',
+            up_age: '20대',
+            up_gender: 'M',
+            up_joindate: '20240604'
         }
         sendGAPage(pageObj);
         console.log(window.dataLayer);
