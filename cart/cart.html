@@ -9,7 +9,25 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <script src="/js/GoogleAnalyticsBuilder.js"></script>
     <script>
+        let pageviewObj = {
+            // 방문 페이지 제목
+            title: '장바구니>장바구니 홈',
 
+            // 이벤트 매개변수
+            ep_page_name: '장바구니>장바구니 홈',            
+            ep_visit_channel: 'PCWeb',
+            ep_login_yn: 'Y',
+            ep_dow: '화',
+
+            // 사용자 속성
+            up_uid: 'hhpark',
+            up_type: '개인',
+            up_age: '20대',
+            up_gender: 'M',
+            up_joindate: '20240604'
+        };
+        sendGAPage(pageviewObj);
+        console.log(window.dataLayer);
     </script>
     <script src="/js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

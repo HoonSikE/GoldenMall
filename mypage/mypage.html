@@ -9,19 +9,24 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <script src="/js/GoogleAnalyticsBuilder.js"></script>
     <script>
-        let pageObj = {
+        let pageviewObj = {
             // 방문 페이지 제목
-            // title: '페이지 제목dd',
+            title: '마이페이지>마이페이지 홈',
 
-            // // 이벤트 매개변수
-            // ep_visit_login_yn: 'Y',
-            // ep_visit_channel_option: 'PCWeb',
+            // 이벤트 매개변수
+            ep_page_name: '마이페이지>마이페이지 홈',            
+            ep_visit_channel: 'PCWeb',
+            ep_login_yn: 'Y',
+            ep_dow: '화',
 
-            // // 사용자 속성
-            // up_gender: 'M',
-            // up_age: '29'
-        }
-        sendGAPage(pageObj);
+            // 사용자 속성
+            up_uid: 'hhpark',
+            up_type: '개인',
+            up_age: '20대',
+            up_gender: 'M',
+            up_joindate: '20240604'
+        };
+        sendGAPage(pageviewObj);
         console.log(window.dataLayer);
     </script>
     <script src="/js/script.js"></script>
