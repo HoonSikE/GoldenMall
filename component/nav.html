@@ -1,5 +1,46 @@
 <nav>
-    <img id="move-cart" src="/asset/icon/ic_cart.png" onclick="moveCart()" alt=""/>
-    <img id="move-home" src="/asset/icon/ic_home.png" onclick="moveMainPage()" alt=""/>
-    <img id="move-mypage" src="/asset/icon/ic_user.png" onclick="moveMypage()" alt=""/>
+    <img id="move-cart" src="/asset/icon/ic_cart.png" onclick="eventMoveCart()" alt=""/>
+    <img id="move-home" src="/asset/icon/ic_home.png" onclick="eventMoveMainPage()" alt=""/>
+    <img id="move-mypage" src="/asset/icon/ic_user.png" onclick="eventMoveMypage()" alt=""/>
 </nav>
+<script>
+    function eventMoveCart(){
+        let eventObj = {
+            // 이벤트 명
+            event_name: 'click_event',
+            // 이벤트 매개변수
+            ep_click_area: '네비',
+            ep_click_label: '장바구니 이미지',
+        };
+        sendGAEvent(eventObj);
+        console.log(window.dataLayer);
+        
+        moveCart();
+    }
+    function eventMoveMainPage(){
+        let eventObj = {
+            // 이벤트 명
+            event_name: 'click_event',
+            // 이벤트 매개변수
+            ep_click_area: '네비',
+            ep_click_label: '홈 이미지',
+        };
+        sendGAEvent(eventObj);
+        console.log(window.dataLayer);
+        
+        moveMainPage();
+    }
+    function eventMoveMypage(){
+        let eventObj = {
+            // 이벤트 명
+            event_name: 'click_event',
+            // 이벤트 매개변수
+            ep_click_area: '네비',
+            ep_click_label: '유저 이미지',
+        };
+        sendGAEvent(eventObj);
+        console.log(window.dataLayer);
+        
+        moveMypage();
+    }
+</script>

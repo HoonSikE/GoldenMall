@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <script src="/js/GoogleAnalyticsBuilder.js"></script>
     <script>
+        // 페이지 뷰
         let pageviewObj = {
             // 방문 페이지 제목
             title: '상품>상품 리스트',
@@ -28,6 +29,93 @@
         };
         sendGAPage(pageviewObj);
         console.log(window.dataLayer);
+
+        // 전자 상거래
+        // 기본 정보
+        let eventData = {
+            event_name: 'view_item_list',
+            ep_ecommerce: 'view_item_list',
+        };
+        // 거래 정보
+        let transaction = {
+            currency: 'KRW',
+        };
+        let productShoes1 = {
+            item_id: 'VANS_12345',
+            item_brand: 'Vans',
+            item_name: '반스 운동화 올드스쿨 블랙',
+            item_variant: 'Black',
+            price: 18860.0,
+            affiliation: 'Golden Mall',
+            coupon: 'SUMMER_FUN',
+            item_category: 'Clothes',
+            item_category2: 'Shoes',
+            quantity: 1,
+            index: 0,
+        };
+        let productShoes2 = {
+            item_id: 'CROCS_67890',
+            item_brand: 'Crocs',
+            item_name: '바야밴드 클로그',
+            item_variant: 'White',
+            price: 35900.0,
+            affiliation: 'Golden Mall',
+            item_category: 'Clothes',
+            item_category2: 'Shoes',
+            quantity: 1,
+            index: 1,
+        };
+
+        let productShirt1 = {
+            item_id: 'NIKE_369',
+            item_brand: 'Nike',
+            item_name: '나이키 스우시 반팔',
+            item_variant: 'Black/White',
+            price: 22900.0,
+            affiliation: 'Golden Mall',
+            item_category: 'Clothes',
+            item_category2: 'Shirt',
+            quantity: 1,
+            index: 2,
+        };
+        let productShirt2 = {
+            item_id: 'COMME_777',
+            item_brand: '꼼데가르송',
+            item_name: 'PLAY 반팔티셔츠',
+            item_variant: 'White',
+            price: 123000.0,
+            affiliation: 'Golden Mall',
+            item_category: 'Clothes',
+            item_category2: 'Shirt',
+            quantity: 1,
+            index: 3,
+        };
+
+        let productDrink1 = {
+            item_id: 'SAM_111',
+            item_brand: '삼육두유',
+            item_name: '검은참깨 두유',
+            price: 19500.0,
+            affiliation: 'Golden Mall',
+            item_category: 'Food',
+            item_category2: 'Drink',
+            quantity: 32,
+            index: 4,
+        };
+        let productDrink2 = {
+            item_id: 'M_13579',
+            item_brand: '매일유업',
+            item_name: '아몬드 브리즈',
+            price: 21900.0,
+            affiliation: 'Golden Mall',
+            item_category: 'Food',
+            item_category2: 'Drink',
+            quantity: 24,
+            index: 5,
+        };
+
+        let items = [productShoes1, productShoes2, productShirt1, productShirt2, productDrink1, productDrink2];
+        sendGAEcommerce(eventData, transaction, items);
     </script>
     <script src="/js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -58,7 +146,7 @@
                 </div>
             </div>
             <div class="product-list">
-                <div class="product-info" onclick="moveProductItemDetail()">
+                <div class="product-info" onclick="eventMoveProductItemDetail()">
                     <img class="product-info-img" src="/asset/product/img_shoes1.jpg" alt=""/>
                     <div class="product-info-title">Vans</div>
                     <div class="product-info-content">올드스쿨 블랙</div>
@@ -154,5 +242,21 @@
         $("#nav").load("/component/nav.html", function(){
         });
     });
+
+    function eventMoveProductItemDetail(){
+        let eventObj = {
+            // 이벤트 명
+            event_name: 'click_event',
+            // 이벤트 매개변수
+            ep_click_page: '메인>골든몰 홈',            
+            ep_click_area: '바디',
+            ep_click_area2: '추천 상품 안내 이미지',
+            ep_click_label: '추천상품 보기 !!',
+        };
+        sendGAEvent(eventObj);
+        console.log(window.dataLayer);
+        
+        moveProductItemDetail();
+    }
 </script>
 </html>

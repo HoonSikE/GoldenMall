@@ -28,6 +28,34 @@
         };
         sendGAPage(pageviewObj);
         console.log(window.dataLayer);
+
+        // 전자 상거래
+        // 기본 정보
+        let eventData = {
+            event_name: 'select_item',
+            ep_ecommerce: 'select_item',
+        };
+        // 거래 정보
+        let transaction = {
+            currency: 'KRW',
+        };
+        // 상품 정보
+        let productShoes1 = {
+            item_id: 'VANS_12345',
+            item_brand: 'Vans',
+            item_name: '반스 운동화 올드스쿨 블랙',
+            item_variant: 'Black',
+            price: 18860.0,
+            affiliation: 'Golden Mall',
+            coupon: 'SUMMER_FUN',
+            item_category: 'Clothes',
+            item_category2: 'Shoes',
+            quantity: 1,
+        };
+
+        let items = [productShoes1];
+
+        sendGAEcommerce(eventData, transaction, items);
     </script>
     <script src="/js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -47,7 +75,7 @@
                 <div class="product-info-content">홈 > 의류 > 신발</div>
             </div>
             <div class="product-list">
-                <div class="product-info-big" onclick="moveProductItemDetail()">
+                <div class="product-info-big">
                     <img class="product-info-img" src="/asset/product/img_shoes1.jpg" alt=""/>
                 </div>
             </div>
@@ -91,14 +119,14 @@
     </div>
 
     <div class="main-button-backgroundcolor">
-        <div style="width: 10%; display: flex; justify-content: center; align-items: center;">
+        <div onclick="addWishList()" style="width: 10%; display: flex; justify-content: center; align-items: center;">
             <img src="/asset/icon/ic_heart.png" style="height: 90%; width: auto;" alt="">
         </div>
         <div style="width: 40%;">
-            <button class="sub-button" onclick="moveCart()">장 바 구 니</button>    
+            <button class="sub-button" onclick="eventAddMoveCart()">장 바 구 니</button>    
         </div>
         <div style="width: 50%;">
-            <button class="main-button" onclick="moveProductCheckout()">구 매</button>    
+            <button class="main-button" onclick="eventMoveProductCheckout()">구 매</button>    
         </div>
     </div>
 
@@ -111,5 +139,95 @@
         $("#nav").load("/component/nav.html", function(){
         });
     });
+
+    function addWishList(){
+        // 전자 상거래
+        // 기본 정보
+        let eventData = {
+            event_name: 'add_to_wishlist',
+            ep_ecommerce: 'add_to_wishlist',
+        };
+        // 거래 정보
+        let transaction = {
+            currency: 'KRW',
+        };
+        // 상품 정보
+        let productShoes1 = {
+            item_id: 'VANS_12345',
+            item_brand: 'Vans',
+            item_name: '반스 운동화 올드스쿨 블랙',
+            item_variant: 'Black',
+            price: 18860.0,
+            affiliation: 'Golden Mall',
+            coupon: 'SUMMER_FUN',
+            item_category: 'Clothes',
+            item_category2: 'Shoes',
+        };
+
+        let items = [productShoes1];
+
+        sendGAEcommerce(eventData, transaction, items);
+    }
+    function eventAddMoveCart(){
+        // 전자 상거래
+        // 기본 정보
+        let eventData = {
+            event_name: 'add_to_cart',
+            ep_ecommerce: 'add_to_cart',
+        };
+        // 거래 정보
+        let transaction = {
+            currency: 'KRW',
+        };
+        // 상품 정보
+        let productShoes1 = {
+            item_id: 'VANS_12345',
+            item_brand: 'Vans',
+            item_name: '반스 운동화 올드스쿨 블랙',
+            item_variant: 'Black',
+            price: 18860.0,
+            affiliation: 'Golden Mall',
+            coupon: 'SUMMER_FUN',
+            item_category: 'Clothes',
+            item_category2: 'Shoes',
+        };
+
+        let items = [productShoes1];
+
+        sendGAEcommerce(eventData, transaction, items);
+        
+        moveCart();
+    }
+
+    function eventMoveProductCheckout(){
+        // 전자 상거래
+        // 기본 정보
+        let eventData = {
+            event_name: 'begin_checkout',
+            ep_ecommerce: 'begin_checkout',
+        };
+        // 거래 정보
+        let transaction = {
+            currency: 'KRW',
+        };
+        // 상품 정보
+        let productShoes1 = {
+            item_id: 'VANS_12345',
+            item_brand: 'Vans',
+            item_name: '반스 운동화 올드스쿨 블랙',
+            item_variant: 'Black',
+            price: 18860.0,
+            affiliation: 'Golden Mall',
+            coupon: 'SUMMER_FUN',
+            item_category: 'Clothes',
+            item_category2: 'Shoes',
+        };
+
+        let items = [productShoes1];
+
+        sendGAEcommerce(eventData, transaction, items);
+        
+        moveProductCheckout();
+    }
 </script>
 </html>

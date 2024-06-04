@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <script src="/js/GoogleAnalyticsBuilder.js"></script>
     <script>
+        // 페이지 뷰
         let pageviewObj = {
             // 방문 페이지 제목
             title: '상품>구매>구매 완료',
@@ -28,6 +29,51 @@
         };
         sendGAPage(pageviewObj);
         console.log(window.dataLayer);
+
+        // 전자 상거래
+        // 기본 정보
+        let eventData = {
+            event_name: 'purchase',
+            ep_ecommerce: 'purchase',
+        };
+        // 거래 정보
+        let transaction = {
+            currency: 'KRW',
+            value: 175860.0,
+            shipping: 3000.0,
+            transaction_id: 'GP-240507',
+            payment_type: 'Kakao Pay',
+        };
+        // 상품 정보
+        let productShoes1 = {
+            item_id: 'VANS_12345',
+            item_brand: 'Vans',
+            item_name: '반스 운동화 올드스쿨 블랙',
+            item_variant: 'Black',
+            price: 18860.0,
+            affiliation: 'Golden Mall',
+            coupon: 'SUMMER_FUN',
+            item_category: 'Clothes',
+            item_category2: 'Shoes',
+            index: 0,
+            quantity: 1,
+        };
+        let productShirt1 = {
+            item_id: 'COMME_777',
+            item_brand: '꼼데가르송',
+            item_name: 'PLAY 반팔티셔츠',
+            item_variant: 'White',
+            price: 123.000,
+            affiliation: 'Golden Mall',
+            item_category: 'Clothes',
+            item_category2: 'Shirt',
+            index: 1,
+            quantity: 1,
+        };
+
+        let items = [productShoes1, productShirt1];
+
+        sendGAEcommerce(eventData, transaction, items);
     </script>
     <script src="/js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -50,7 +96,7 @@
                 <div class="product-info-content">주문번호 (GP-240507)</div>
             </div>
             <div class="product-list">
-                <div class="product-info" onclick="moveProductItemDetail()">
+                <div class="product-info">
                     <img class="product-info-img" src="/asset/product/img_shoes1.jpg" alt=""/>
                 </div>
                 <div class="product-info">
@@ -104,7 +150,7 @@
     </div>
 
     <div class="main-button-backgroundcolor">
-        <button class="main-button" onclick="moveMainPage()">홈 으 로</button>
+        <button class="main-button" onclick="eventMoveMainPage()">홈 으 로</button>
     </div>
 
     <div id="nav"></div>
@@ -116,5 +162,21 @@
         $("#nav").load("/component/nav.html", function(){
         });
     });
+
+    function eventMoveMainPage(){
+        let eventObj = {
+            // 이벤트 명
+            event_name: 'click_event',
+            // 이벤트 매개변수
+            ep_click_page: '상품>구매>구매 완료',            
+            ep_click_area: '바디',
+            ep_click_area2: '버튼',
+            ep_click_label: '홈으로',
+        };
+        sendGAEvent(eventObj);
+        console.log(window.dataLayer);
+        
+        moveMainPage();
+    }
 </script>
 </html>

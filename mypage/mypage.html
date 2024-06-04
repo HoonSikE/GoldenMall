@@ -56,11 +56,11 @@
             <img class="mypage-icon" src="/asset/icon/ic_user.png" alt=""></img>
             <div class="mypage-list-text">계정</div>
         </span>
-        <span class="mypage-list" onclick="moveProductHistory()">
+        <span class="mypage-list" onclick="eventMoveProductHistory()">
             <img class="mypage-icon" src="/asset/icon/ic_delivery.png" alt=""></img>
             <div class="mypage-list-text">주문 및 배송 목록</div>
         </span>
-        <span class="mypage-list" onclick="moveCart()">
+        <span class="mypage-list" onclick="eventMoveCart()">
             <img class="mypage-icon" src="/asset/icon/ic_cart.png" alt=""></img>
             <div class="mypage-list-text">장바구니 목록</div>
         </span>
@@ -90,5 +90,37 @@
             moveMyPage.src = "/asset/icon/ic_user2.png";
         });
     });
+
+    function eventMoveProductHistory(){
+        let eventObj = {
+            // 이벤트 명
+            event_name: 'click_event',
+            // 이벤트 매개변수
+            ep_click_page: '마이페이지>마이페이지 홈',            
+            ep_click_area: '바디',
+            ep_click_area2: '마이 페이지 목록',
+            ep_click_label: '주문 및 배송 목록',
+        };
+        sendGAEvent(eventObj);
+        console.log(window.dataLayer);
+        
+        moveProductHistory();
+    }
+
+    function eventMoveCart(){
+        let eventObj = {
+            // 이벤트 명
+            event_name: 'click_event',
+            // 이벤트 매개변수
+            ep_click_page: '마이페이지>마이페이지 홈',            
+            ep_click_area: '바디',
+            ep_click_area2: '마이 페이지 목록',
+            ep_click_label: '장바구니 목록',
+        };
+        sendGAEvent(eventObj);
+        console.log(window.dataLayer);
+        
+        moveCart();
+    }
 </script>
 </html>
