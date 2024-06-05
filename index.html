@@ -42,11 +42,11 @@
     <div id="header"></div>
 
     <div class="container">
-        <div style="margin-top: 5vh;">
-            <div class="center" onclick="modal()">
+        <div style="margin-top: 5vh;" onclick="modal()">
+            <div class="center">
                 <img class="show-modal-img" src="/asset/main/img_gp_modal.png" alt="">
             </div>
-            <div class="center" onclick="modal()">
+            <div class="center">
                 <div>[크게 보기]</div>
             </div>
         </div>
@@ -102,6 +102,26 @@
         } else {
             modal.style.display = "none";
         }
+
+        let virtualObj = {
+            // 방문 페이지 제목
+            title: '메인>골든몰 홈',
+            location: 'https://goldenmall.netlify.app/virtual/modal/index.html',
+
+            // 이벤트 매개변수
+            ep_page_name: '메인>골든몰 홈',            
+            ep_visit_channel: 'PCWeb',
+            ep_login_yn: 'Y',
+            ep_dow: '화',
+
+            // 사용자 속성
+            up_uid: 'hhpark',
+            up_type: '개인',
+            up_age: '20대',
+            up_gender: 'M',
+            up_joindate: '20240604'
+        };
+        sendGAVirPage(virtualObj);
     }
 
     // 모달 닫기 버튼 클릭 시

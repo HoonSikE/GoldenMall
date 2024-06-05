@@ -163,3 +163,20 @@ function sendGAEcommerce(eventData, transaction, items) {
     console.log(e.message);
   }
 }
+
+function sendGAVirPage(virObject){
+  try {
+    let GAData = removeEmptyElement(virObject);
+    // if (isAndroid || isIOS) {
+    //   GAData.type = 'E';
+    //   hybrid(GAData);
+    // } else {
+      GAData.event = 'ga_virtual';
+      dataLayer.push(GAData);
+      resetDataLayer(GAData);
+    // }
+  } catch (e) {
+    console.log('sendGAVirPage 함수 ERROR');
+    console.log(e.message);
+  }
+}
