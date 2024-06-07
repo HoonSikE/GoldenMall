@@ -56,7 +56,7 @@ function resetDataLayer(targetObject) {
 function sendGAPage(object) {
   try {
     object = removeEmptyElement(object);
-    commonData = { ...object };
+    // commonData = { ...object };
     // if (isAndroid || isIOS) {
       // object.type = 'P';
       // hybrid(object);
