@@ -6,10 +6,10 @@
 - 고객사에 코드 나가기 전 GTM 추적 ID 반드시 확인 바랍니다.
 */
 window.dataLayer = window.dataLayer || [];
-// let browserInfo = navigator.userAgent;
-// let isAndroid = browserInfo.indexOf('GA_Android') > -1;
-// let isIOS = browserInfo.indexOf('GA_iOS_WK') > -1;
-// let commonData = {};
+let browserInfo = navigator.userAgent;
+let isAndroid = browserInfo.indexOf('GA_Android') > -1;
+let isIOS = browserInfo.indexOf('GA_iOS_WK') > -1;
+let commonData = {};
 
 /*
 - 매개변수 제거 함수
@@ -44,10 +44,10 @@ function resetDataLayer(targetObject) {
 - 하이브리드 함수
 - 앱사용자일 경우 데이터를 JSON 형태로 앱으로 전달합니다.
 */
-// function hybrid(object) {
-  // let GAData = { ...commonData, ...object };
-  // isAndroid ? window.gascriptAndroid.GAHybrid(JSON.stringify(GAData)) : webkit.messageHandlers.gascriptCallbackHandler.postMessage(JSON.stringify(GAData));
-// }
+function hybrid(object) {
+  let GAData = { ...commonData, ...object };
+  isAndroid ? window.gascriptAndroid.GAHybrid(JSON.stringify(GAData)) : webkit.messageHandlers.gascriptCallbackHandler.postMessage(JSON.stringify(GAData));
+}
 
 /*
 - 페이지뷰 전송 함수
@@ -56,11 +56,11 @@ function resetDataLayer(targetObject) {
 function sendGAPage(object) {
   try {
     object = removeEmptyElement(object);
-    // commonData = { ...object };
-    // if (isAndroid || isIOS) {
-      // object.type = 'P';
-      // hybrid(object);
-    // } else {
+    commonData = { ...object };
+    if (isAndroid || isIOS) {
+      object.type = 'P';
+      hybrid(object);
+    } else {
       dataLayer = [object];
 
       // Google Tag Manager
@@ -70,7 +70,7 @@ function sendGAPage(object) {
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-WN78NTLT');
       // End Google Tag Manager
-    // }
+    }
   } catch (e) {
     console.log('sendGAPage 함수 ERROR');
     console.log(e.message);
@@ -85,14 +85,14 @@ function sendGAPage(object) {
 function sendGAEvent(object) {
   try {
     let GAData = removeEmptyElement(object);
-    // if (isAndroid || isIOS) {
-    //   GAData.type = 'E';
-    //   hybrid(GAData);
-    // } else {
+    if (isAndroid || isIOS) {
+      GAData.type = 'E';
+      hybrid(GAData);
+    } else {
       GAData.event = 'ga_event';
       dataLayer.push(GAData);
       resetDataLayer(GAData);
-    // }
+    }
   } catch (e) {
     console.log('sendGAEvent 함수 ERROR');
     console.log(e.message);
@@ -115,14 +115,14 @@ function sendGAAttrEvent(event) {
       }
     }
     GAData['event_name'] = ELE.getAttribute('event_name');
-    // if (isAndroid || isIOS) {
-    //   GAData.type = 'E';
-    //   hybrid(GAData);
-    // } else {
+    if (isAndroid || isIOS) {
+      GAData.type = 'E';
+      hybrid(GAData);
+    } else {
       GAData.event = 'ga_event';
       dataLayer.push(GAData);
       resetDataLayer(GAData);
-    // }
+    }
   } catch (e) {
     console.log('sendGAAttrEvent 함수 ERROR');
     console.log(e.message);
@@ -138,15 +138,15 @@ function sendGAEcommerce(eventData, transaction, items) {
     eventData = removeEmptyElement(eventData);
     transaction = removeEmptyElement(transaction);
     for (var i in items) items[i] = removeEmptyElement(items[i]);
-    // if (isAndroid || isIOS) {
-    //   let GAData = {
-    //     ...eventData,
-    //     transaction,
-    //     items,
-    //     type: 'E',
-    //   };
-    //   hybrid(GAData);
-    // } else {
+    if (isAndroid || isIOS) {
+      let GAData = {
+        ...eventData,
+        transaction,
+        items,
+        type: 'E',
+      };
+      hybrid(GAData);
+    } else {
       let GAData = {
         event: 'ga_ecommerce',
         ...eventData,
@@ -157,7 +157,7 @@ function sendGAEcommerce(eventData, transaction, items) {
       };
       dataLayer.push(GAData);
       resetDataLayer(GAData);
-    // }
+    }
   } catch (e) {
     console.log('sendGAEcommerce 함수 ERROR');
     console.log(e.message);
@@ -167,14 +167,14 @@ function sendGAEcommerce(eventData, transaction, items) {
 function sendGAVirPage(virObject){
   try {
     let GAData = removeEmptyElement(virObject);
-    // if (isAndroid || isIOS) {
-    //   GAData.type = 'E';
-    //   hybrid(GAData);
-    // } else {
+    if (isAndroid || isIOS) {
+      GAData.type = 'E';
+      hybrid(GAData);
+    } else {
       GAData.event = 'ga_virtual';
       dataLayer.push(GAData);
       resetDataLayer(GAData);
-    // }
+    }
   } catch (e) {
     console.log('sendGAVirPage 함수 ERROR');
     console.log(e.message);
