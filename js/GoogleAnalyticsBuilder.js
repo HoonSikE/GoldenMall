@@ -5,7 +5,6 @@
 - 이벤트 함수의 경우 프로젝트에 맞게 사용하시되, 함수명 꼭 확인 바랍니다.
 - 고객사에 코드 나가기 전 GTM 추적 ID 반드시 확인 바랍니다.
 */
-window.dataLayer = window.dataLayer || [];
 let browserInfo = navigator.userAgent;
 let isAndroid = browserInfo.indexOf('GA_Android') > -1;
 let isIOS = browserInfo.indexOf('GA_iOS_WK') > -1;
