@@ -45,7 +45,8 @@ function resetDataLayer(targetObject) {
 */
 function hybrid(object) {
   let GAData = { ...commonData, ...object };
-  isAndroid ? window.gascriptAndroid.GAHybrid(JSON.stringify(GAData)) : webkit.messageHandlers.gascriptCallbackHandler.postMessage(JSON.stringify(GAData));
+  isAndroid ? window.gascriptAndroid.GAHybrid(JSON.stringify(GAData))
+  : webkit.messageHandlers.gascriptCallbackHandler.postMessage(JSON.stringify(GAData));
 }
 
 /*
